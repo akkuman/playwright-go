@@ -50,11 +50,11 @@ func newPlaywright(parent *channelOwner, objectType string, guid string, initial
 	pw.Chromium.(*browserTypeImpl).playwright = pw
 	pw.Firefox.(*browserTypeImpl).playwright = pw
 	pw.WebKit.(*browserTypeImpl).playwright = pw
-	selectorsOwner := fromChannel(initializer["selectors"]).(*selectorsOwnerImpl)
-	pw.Selectors.(*selectorsImpl).addChannel(selectorsOwner)
-	pw.connection.afterClose = func() {
-		pw.Selectors.(*selectorsImpl).removeChannel(selectorsOwner)
-	}
+	// selectorsOwner := fromChannel(initializer["selectors"]).(*selectorsOwnerImpl)
+	// pw.Selectors.(*selectorsImpl).addChannel(selectorsOwner)
+	// pw.connection.afterClose = func() {
+	// 	pw.Selectors.(*selectorsImpl).removeChannel(selectorsOwner)
+	// }
 	if pw.connection.localUtils != nil {
 		pw.Devices = pw.connection.localUtils.Devices
 	}
